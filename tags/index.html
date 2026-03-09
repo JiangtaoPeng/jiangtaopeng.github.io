@@ -1,0 +1,32 @@
+---
+layout: page
+title: 标签
+description: 浏览所有文章标签
+permalink: /tags/
+---
+
+{% assign tags = site.tags | sort %}
+<div class="tags-cloud">
+  {% for tag in tags %}
+  <a href="#{{ tag[0] }}" class="tag-item">
+    #{{ tag[0] }}
+    <span class="count">{{ tag[1].size }}</span>
+  </a>
+  {% endfor %}
+</div>
+
+{% for tag in tags %}
+<section id="{{ tag[0] }}" class="tag-section">
+  <h2 class="archive-year">#{{ tag[0] }}</h2>
+  <ul class="archive-list">
+    {% for post in tag[1] %}
+    <li class="archive-item">
+      <span class="archive-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span class="archive-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

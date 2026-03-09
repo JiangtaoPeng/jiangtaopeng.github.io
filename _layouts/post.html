@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<article class="post-article">
+  <div class="container">
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          <i class="far fa-calendar"></i>
+          {{ page.date | date: "%Y年%m月%d日" }}
+        </time>
+        {% if page.author %}
+        <span class="author">
+          <i class="far fa-user"></i>
+          {{ page.author }}
+        </span>
+        {% endif %}
+        {% if page.reading_time %}
+        <span class="reading-time">
+          <i class="far fa-clock"></i>
+          {{ page.reading_time }} 分钟阅读
+        </span>
+        {% endif %}
+      </div>
+      
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      {% if page.tags and page.tags.size > 0 %}
+      <div class="post-tags-list">
+        {% for tag in page.tags %}
+        <a href="{{ '/tags/' | append: tag | relative_url }}" class="tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+    
+    <div class="post-content">
+      {{ content }}
+    </div>
+    
+    <footer class="post-footer">
+      <div class="share-buttons">
+        <span>分享文章：</span>
+        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}" target="_blank" class="share-btn twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="share-btn facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="javascript:navigator.clipboard.writeText('{{ page.url | absolute_url }}').then(() => alert('链接已复制！'))" class="share-btn copy">
+          <i class="fas fa-link"></i>
+        </a>
+      </div>
+    </footer>
+    
+    <nav class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="nav-prev">
+        <i class="fas fa-chevron-left"></i>
+        <span>上一篇</span>
+        <strong>{{ page.previous.title | truncate: 30 }}</strong>
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="nav-next">
+        <span>下一篇</span>
+        <strong>{{ page.next.title | truncate: 30 }}</strong>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      {% endif %}
+    </nav>
+  </div>
+</article>

@@ -1,9 +1,59 @@
 title: PJT's Blog
-description: 我的个人博客
+description: 记录技术成长与生活感悟
+author: PJT
 baseurl: ""
 url: "https://JiangtaoPeng.github.io"
 
-theme: minima
+# Author info
+github: https://github.com/JiangtaoPeng
+email: 
 
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Pagination
+paginate: 6
+paginate_path: "/page:num/"
+
+# Permalinks
+permalink: /posts/:year/:month/:day/:title/
+
+# Collections
+collections_dir: collections
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "PJT"
+      reading_time: true
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+
+# Include in processing
+include:
+  - _pages
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
