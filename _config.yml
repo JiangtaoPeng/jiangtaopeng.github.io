@@ -1,0 +1,9 @@
+title: PJT's Blog
+description: 我的个人博客
+baseurl: ""
+url: "https://JiangtaoPeng.github.io"
+
+theme: minima
+
+plugins:
+  - jekyll-feed
