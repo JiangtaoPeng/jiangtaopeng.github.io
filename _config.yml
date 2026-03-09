@@ -1,42 +1,35 @@
-title: PJT's Blog
-description: 记录技术成长与生活感悟
-author: PJT
-baseurl: ""
-url: "https://JiangtaoPeng.github.io"
+# Green Healing Blog 🌿
 
-# Author info
-github: https://github.com/JiangtaoPeng
-email: 
+title: Green Healing Blog
+description: >-
+  一个绿色治愈主题的个人博客，记录生活中的美好与宁静。
+  A green healing themed personal blog.
+baseurl: ""
+url: "https://jiangtaopeng.github.io"
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-
-# Plugins
+theme: null
 plugins:
   - jekyll-feed
-  - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
 
 # Pagination
 paginate: 6
-paginate_path: "/page:num/"
+paginate_path: "/page/:num/"
 
-# Permalinks
-permalink: /posts/:year/:month/:day/:title/
+# Author
+author:
+  name: Jiangtao Peng
+  email: pengjtnina@gmail.com
+  bio: "热爱生活，热爱自然，用文字记录每一个治愈的瞬间 🌱"
+  avatar: "/assets/images/avatar.jpg"
 
-# Collections
-collections_dir: collections
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "PJT"
-      reading_time: true
+# Social links
+social:
+  github: NinaPeng
 
 # Exclude from processing
 exclude:
@@ -46,14 +39,19 @@ exclude:
   - vendor
   - README.md
 
-# Include in processing
-include:
-  - _pages
+# Collections
+collections:
+  pages:
+    output: true
 
-# Kramdown settings
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
